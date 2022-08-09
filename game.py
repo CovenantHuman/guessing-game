@@ -5,12 +5,14 @@ import random
 best_score = None
 play_again = True
 name = input("Howdy! What's your name? ")
+user_min = int(input("Give us your lowest number, human scum"))
+user_max = int(input("What is your highest number, feeble mortal"))
 
 
 while play_again: 
     tries = 0
-    print(f"Okay, {name}, we're thinking of a number between 1 and 100. You get 7 guesses.")
-    secret_number = random.randint(1,100)
+    print(f"Okay, {name}, we're thinking of a number between {user_min} and {user_max}. You get 7 guesses.")
+    secret_number = random.randint(user_min,user_max)
     # for testing coding
     print(f"The secret number is {secret_number}")
 
