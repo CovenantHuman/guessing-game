@@ -1,15 +1,14 @@
 """A number-guessing game."""
 
 import random
-tries = 0
+
 best_score = None
 play_again = True
-
-
-# ----- welcome / user input --------
 name = input("Howdy! What's your name? ")
 
+
 while play_again: 
+    tries = 0
     print(f"Okay, {name}, we're thinking of a number between 1 and 100.")
     secret_number = random.randint(1,100)
     # for testing coding
@@ -35,8 +34,14 @@ while play_again:
                 print("Too low! Try again")
             else:
                 game_over = True
+                if best_score == None or best_score > tries:
+                    best_score = tries
                 print(f"You got it! The secret number was {secret_number}. You got it in {tries} guesses")
-    restart = input("Would you like to play again? Y/N").lower()
+                print(f"The current best score is: {best_score}")
+
+                
+                
+    restart = input("Would you like to play again? Y/N ").lower()
     if restart == "n":
         play_again = False
         print("Thanks for playing!")
